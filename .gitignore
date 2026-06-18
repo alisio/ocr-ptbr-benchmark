@@ -1,11 +1,13 @@
-# diretorios temporarios / descartaveis
-amostras_manuscritas/
-bressay_sample/
+# Python cache
 __pycache__/
 *.pyc
+.pytest_cache/
 
-# arquivos de sistema macOS
+# Sistema macOS
 .DS_Store
 
-# credenciais (nunca commitar)
+# Credenciais
 **/.env
+
+# Dados temporários / externos
+dados/bressay_sample/

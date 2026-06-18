@@ -540,11 +540,11 @@ agindo descalibrada e arbitrariamente.
 
 ## Arquivos Gerados
 
-- `amostras_dharma/` — 10 amostras do DharmaOCR-Benchmark (imagens PNG + manifest.json com GT)
-- `resultados_dharma.json` — saídas de 8 modelos nas 10 amostras (80+ entradas)
-- `metricas_dharma_resumo.json` — métricas agregadas por modelo e por amostra
-- `testar_dharma.py` / `testar_dharma_completo.py` / `testar_dharma_restantes.py` — scripts de teste
-- `metricas_dharma.py` — cálculo de métricas (LR, BLEU, Score, CER, WER, F1)
+- `dados/amostras_dharma/` — 10 amostras do DharmaOCR-Benchmark (imagens PNG + manifest.json com GT)
+- `resultados/dharma.json` — saídas de 9 modelos nas 10 amostras (80+ entradas)
+- `resultados/metricas_dharma_resumo.json` — métricas agregadas por modelo e por amostra
+- `src/testes/testar_ocr.py` — script unificado de teste (--provider --modelos --amostras --dataset)
+- `src/metricas/calcular_metricas.py` — cálculo de métricas (CER, WER, F1, LR, BLEU, Score)
 
 ---
 

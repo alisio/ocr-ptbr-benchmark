@@ -1,0 +1,3 @@
+allenai/olmOCR-2-7B-1025,deepinfra
+PaddlePaddle/PaddleOCR-VL-0.9B,deepinfra
+nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL,deepinfra

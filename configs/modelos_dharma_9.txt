@@ -1,0 +1,8 @@
+allenai/olmOCR-2-7B-1025,deepinfra
+qwen/qwen3-vl-32b-instruct,openrouter
+qwen/qwen3-vl-235b-a22b-instruct,openrouter
+meta-llama/llama-4-maverick,openrouter
+mistralai/mistral-large-2512,openrouter
+google/gemma-4-31b-it,openrouter
+PaddlePaddle/PaddleOCR-VL-0.9B,deepinfra
+nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL,deepinfra

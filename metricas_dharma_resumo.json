@@ -1,0 +1,826 @@
+{
+  "PaddlePaddle/PaddleOCR-VL-0.9B": {
+    "metrics": {
+      "lv_ratio": 0.7475,
+      "bleu": 0.7446,
+      "score": 0.746,
+      "cer": 0.6406,
+      "wer": 0.946,
+      "f1": 0.6525,
+      "deg": 1.4736
+    },
+    "per_sample": {
+      "corcunda_notredame": {
+        "lv_ratio": 0.9214,
+        "bleu": 0.9094,
+        "score": 0.9154,
+        "cer": 0.0786,
+        "wer": 0.1843,
+        "f1": 0.8049,
+        "deg": 0.9754
+      },
+      "filme_coringa": {
+        "lv_ratio": 0.9431,
+        "bleu": 0.9455,
+        "score": 0.9443,
+        "cer": 0.0571,
+        "wer": 0.1217,
+        "f1": 0.8566,
+        "deg": 1.0027
+      },
+      "filme_beleza_ocultar": {
+        "lv_ratio": 0.8308,
+        "bleu": 0.8569,
+        "score": 0.8438,
+        "cer": 0.1692,
+        "wer": 0.3364,
+        "f1": 0.682,
+        "deg": 0.9569
+      },
+      "serie_13_reasons": {
+        "lv_ratio": 0.7866,
+        "bleu": 0.8452,
+        "score": 0.8159,
+        "cer": 0.2134,
+        "wer": 0.3932,
+        "f1": 0.6076,
+        "deg": 0.9782
+      },
+      "filme_coringa_2": {
+        "lv_ratio": 0.8402,
+        "bleu": 0.8712,
+        "score": 0.8557,
+        "cer": 0.1598,
+        "wer": 0.2851,
+        "f1": 0.675,
+        "deg": 0.9844
+      },
+      "luis_x_rei": {
+        "lv_ratio": 0.9615,
+        "bleu": 0.9466,
+        "score": 0.954,
+        "cer": 0.0387,
+        "wer": 0.1694,
+        "f1": 0.8256,
+        "deg": 1.0084
+      },
+      "anatomia": {
+        "lv_ratio": 0.8413,
+        "bleu": 0.902,
+        "score": 0.8716,
+        "cer": 0.1594,
+        "wer": 0.3142,
+        "f1": 0.7169,
+        "deg": 1.0052
+      },
+      "barranquilla": {
+        "lv_ratio": 0.1738,
+        "bleu": 0.1297,
+        "score": 0.1517,
+        "cer": 3.5359,
+        "wer": 5.1542,
+        "f1": 0.3295,
+        "deg": 4.2801
+      },
+      "cairo": {
+        "lv_ratio": 0.2138,
+        "bleu": 0.0819,
+        "score": 0.1478,
+        "cer": 1.9559,
+        "wer": 2.4592,
+        "f1": 0.0843,
+        "deg": 2.4862
+      },
+      "doutrina_nacional": {
+        "lv_ratio": 0.9627,
+        "bleu": 0.9574,
+        "score": 0.96,
+        "cer": 0.0384,
+        "wer": 0.0421,
+        "f1": 0.9423,
+        "deg": 1.0589
+      }
+    }
+  },
+  "allenai/olmOCR-2-7B-1025": {
+    "metrics": {
+      "lv_ratio": 0.7671,
+      "bleu": 0.8156,
+      "score": 0.7913,
+      "cer": 0.5881,
+      "wer": 0.9011,
+      "f1": 0.6919,
+      "deg": 1.4098
+    },
+    "per_sample": {
+      "corcunda_notredame": {
+        "lv_ratio": 0.921,
+        "bleu": 0.9097,
+        "score": 0.9153,
+        "cer": 0.079,
+        "wer": 0.1816,
+        "f1": 0.8057,
+        "deg": 0.9771
+      },
+      "filme_coringa": {
+        "lv_ratio": 0.9403,
+        "bleu": 0.9453,
+        "score": 0.9428,
+        "cer": 0.0598,
+        "wer": 0.1241,
+        "f1": 0.8548,
+        "deg": 1.0008
+      },
+      "filme_beleza_ocultar": {
+        "lv_ratio": 0.8194,
+        "bleu": 0.8637,
+        "score": 0.8416,
+        "cer": 0.1806,
+        "wer": 0.3503,
+        "f1": 0.6654,
+        "deg": 0.9914
+      },
+      "serie_13_reasons": {
+        "lv_ratio": 0.7924,
+        "bleu": 0.8622,
+        "score": 0.8273,
+        "cer": 0.2076,
+        "wer": 0.3832,
+        "f1": 0.6321,
+        "deg": 0.9988
+      },
+      "filme_coringa_2": {
+        "lv_ratio": 0.848,
+        "bleu": 0.8729,
+        "score": 0.8604,
+        "cer": 0.152,
+        "wer": 0.266,
+        "f1": 0.6996,
+        "deg": 0.9821
+      },
+      "luis_x_rei": {
+        "lv_ratio": 0.9603,
+        "bleu": 0.9438,
+        "score": 0.952,
+        "cer": 0.0402,
+        "wer": 0.1761,
+        "f1": 0.823,
+        "deg": 1.0147
+      },
+      "anatomia": {
+        "lv_ratio": 0.8383,
+        "bleu": 0.9018,
+        "score": 0.87,
+        "cer": 0.1617,
+        "wer": 0.3224,
+        "f1": 0.7111,
+        "deg": 0.9982
+      },
+      "barranquilla": {
+        "lv_ratio": 0.1396,
+        "bleu": 0.1365,
+        "score": 0.1381,
+        "cer": 4.4102,
+        "wer": 6.3833,
+        "f1": 0.3823,
+        "deg": 5.1269
+      },
+      "cairo": {
+        "lv_ratio": 0.4516,
+        "bleu": 0.7667,
+        "score": 0.6091,
+        "cer": 0.5484,
+        "wer": 0.7744,
+        "f1": 0.404,
+        "deg": 0.9475
+      },
+      "doutrina_nacional": {
+        "lv_ratio": 0.9596,
+        "bleu": 0.9535,
+        "score": 0.9565,
+        "cer": 0.0416,
+        "wer": 0.0497,
+        "f1": 0.9408,
+        "deg": 1.0601
+      }
+    }
+  },
+  "google/gemma-4-31b-it": {
+    "metrics": {
+      "lv_ratio": 0.7819,
+      "bleu": 0.8173,
+      "score": 0.7996,
+      "cer": 0.2718,
+      "wer": 0.4373,
+      "f1": 0.6595,
+      "deg": 1.077
+    },
+    "per_sample": {
+      "corcunda_notredame": {
+        "lv_ratio": 0.9163,
+        "bleu": 0.9135,
+        "score": 0.9149,
+        "cer": 0.0837,
+        "wer": 0.1599,
+        "f1": 0.8139,
+        "deg": 0.9911
+      },
+      "filme_coringa": {
+        "lv_ratio": 0.941,
+        "bleu": 0.9398,
+        "score": 0.9404,
+        "cer": 0.059,
+        "wer": 0.1265,
+        "f1": 0.8347,
+        "deg": 0.9949
+      },
+      "filme_beleza_ocultar": {
+        "lv_ratio": 0.8256,
+        "bleu": 0.857,
+        "score": 0.8413,
+        "cer": 0.1744,
+        "wer": 0.3643,
+        "f1": 0.6514,
+        "deg": 0.9721
+      },
+      "serie_13_reasons": {
+        "lv_ratio": 0.7943,
+        "bleu": 0.8511,
+        "score": 0.8227,
+        "cer": 0.2057,
+        "wer": 0.3852,
+        "f1": 0.6032,
+        "deg": 0.9951
+      },
+      "filme_coringa_2": {
+        "lv_ratio": 0.8519,
+        "bleu": 0.8736,
+        "score": 0.8627,
+        "cer": 0.1481,
+        "wer": 0.2553,
+        "f1": 0.7005,
+        "deg": 0.9851
+      },
+      "luis_x_rei": {
+        "lv_ratio": 0.9505,
+        "bleu": 0.9324,
+        "score": 0.9415,
+        "cer": 0.0503,
+        "wer": 0.191,
+        "f1": 0.8051,
+        "deg": 1.0188
+      },
+      "anatomia": {
+        "lv_ratio": 0.8413,
+        "bleu": 0.8964,
+        "score": 0.8689,
+        "cer": 0.162,
+        "wer": 0.3183,
+        "f1": 0.7195,
+        "deg": 1.0225
+      },
+      "barranquilla": {
+        "lv_ratio": 0.4638,
+        "bleu": 0.7658,
+        "score": 0.6148,
+        "cer": 0.5362,
+        "wer": 0.7572,
+        "f1": 0.4174,
+        "deg": 0.9785
+      },
+      "cairo": {
+        "lv_ratio": 0.2726,
+        "bleu": 0.1853,
+        "score": 0.229,
+        "cer": 1.2591,
+        "wer": 1.7749,
+        "f1": 0.0988,
+        "deg": 1.7521
+      },
+      "doutrina_nacional": {
+        "lv_ratio": 0.9621,
+        "bleu": 0.9578,
+        "score": 0.9599,
+        "cer": 0.039,
+        "wer": 0.0402,
+        "f1": 0.9504,
+        "deg": 1.0598
+      }
+    }
+  },
+  "meta-llama/llama-4-maverick": {
+    "metrics": {
+      "lv_ratio": 0.8187,
+      "bleu": 0.8658,
+      "score": 0.8423,
+      "cer": 0.1813,
+      "wer": 0.32,
+      "f1": 0.695,
+      "deg": 0.9676
+    },
+    "per_sample": {
+      "corcunda_notredame": {
+        "lv_ratio": 0.9188,
+        "bleu": 0.9149,
+        "score": 0.9169,
+        "cer": 0.0812,
+        "wer": 0.1897,
+        "f1": 0.7992,
+        "deg": 0.9839
+      },
+      "filme_coringa": {
+        "lv_ratio": 0.7729,
+        "bleu": 0.8027,
+        "score": 0.7878,
+        "cer": 0.2271,
+        "wer": 0.382,
+        "f1": 0.5817,
+        "deg": 0.9403
+      },
+      "filme_beleza_ocultar": {
+        "lv_ratio": 0.9047,
+        "bleu": 0.8659,
+        "score": 0.8853,
+        "cer": 0.0953,
+        "wer": 0.3434,
+        "f1": 0.6365,
+        "deg": 0.9897
+      },
+      "serie_13_reasons": {
+        "lv_ratio": 0.7263,
+        "bleu": 0.7973,
+        "score": 0.7618,
+        "cer": 0.2737,
+        "wer": 0.4731,
+        "f1": 0.5401,
+        "deg": 0.9296
+      },
+      "filme_coringa_2": {
+        "lv_ratio": 0.2732,
+        "bleu": 0.5482,
+        "score": 0.4107,
+        "cer": 0.7268,
+        "wer": 0.9468,
+        "f1": 0.1413,
+        "deg": 0.8887
+      },
+      "luis_x_rei": {
+        "lv_ratio": 0.9928,
+        "bleu": 0.9842,
+        "score": 0.9885,
+        "cer": 0.0072,
+        "wer": 0.0615,
+        "f1": 0.94,
+        "deg": 1.0084
+      },
+      "anatomia": {
+        "lv_ratio": 0.9713,
+        "bleu": 0.9777,
+        "score": 0.9745,
+        "cer": 0.0289,
+        "wer": 0.0757,
+        "f1": 0.9353,
+        "deg": 1.0075
+      },
+      "barranquilla": {
+        "lv_ratio": 0.9341,
+        "bleu": 0.9495,
+        "score": 0.9418,
+        "cer": 0.0659,
+        "wer": 0.2095,
+        "f1": 0.7972,
+        "deg": 1.0037
+      },
+      "cairo": {
+        "lv_ratio": 0.7064,
+        "bleu": 0.8403,
+        "score": 0.7733,
+        "cer": 0.2936,
+        "wer": 0.4498,
+        "f1": 0.657,
+        "deg": 0.9295
+      },
+      "doutrina_nacional": {
+        "lv_ratio": 0.9868,
+        "bleu": 0.9773,
+        "score": 0.982,
+        "cer": 0.0132,
+        "wer": 0.0688,
+        "f1": 0.9213,
+        "deg": 0.995
+      }
+    }
+  },
+  "mistralai/mistral-large-2512": {
+    "metrics": {
+      "lv_ratio": 0.7484,
+      "bleu": 0.8165,
+      "score": 0.7825,
+      "cer": 0.2538,
+      "wer": 0.4023,
+      "f1": 0.6443,
+      "deg": 0.9554
+    },
+    "per_sample": {
+      "corcunda_notredame": {
+        "lv_ratio": 0.9269,
+        "bleu": 0.9147,
+        "score": 0.9208,
+        "cer": 0.0731,
+        "wer": 0.187,
+        "f1": 0.8075,
+        "deg": 0.9775
+      },
+      "filme_coringa": {
+        "lv_ratio": 0.8202,
+        "bleu": 0.8477,
+        "score": 0.8339,
+        "cer": 0.1798,
+        "wer": 0.3382,
+        "f1": 0.6513,
+        "deg": 0.9805
+      },
+      "filme_beleza_ocultar": {
+        "lv_ratio": 0.2973,
+        "bleu": 0.3912,
+        "score": 0.3443,
+        "cer": 0.7027,
+        "wer": 0.9165,
+        "f1": 0.1366,
+        "deg": 0.6806
+      },
+      "serie_13_reasons": {
+        "lv_ratio": 0.7931,
+        "bleu": 0.8449,
+        "score": 0.819,
+        "cer": 0.2069,
+        "wer": 0.4172,
+        "f1": 0.6218,
+        "deg": 0.9849
+      },
+      "filme_coringa_2": {
+        "lv_ratio": 0.2525,
+        "bleu": 0.5494,
+        "score": 0.401,
+        "cer": 0.7684,
+        "wer": 1.066,
+        "f1": 0.1364,
+        "deg": 1.0289
+      },
+      "luis_x_rei": {
+        "lv_ratio": 0.986,
+        "bleu": 0.9686,
+        "score": 0.9773,
+        "cer": 0.0142,
+        "wer": 0.1163,
+        "f1": 0.8831,
+        "deg": 1.011
+      },
+      "anatomia": {
+        "lv_ratio": 0.9645,
+        "bleu": 0.9667,
+        "score": 0.9656,
+        "cer": 0.0361,
+        "wer": 0.0819,
+        "f1": 0.927,
+        "deg": 1.0174
+      },
+      "barranquilla": {
+        "lv_ratio": 0.7583,
+        "bleu": 0.8559,
+        "score": 0.8071,
+        "cer": 0.2417,
+        "wer": 0.3876,
+        "f1": 0.7013,
+        "deg": 0.9353
+      },
+      "cairo": {
+        "lv_ratio": 0.705,
+        "bleu": 0.8568,
+        "score": 0.7809,
+        "cer": 0.295,
+        "wer": 0.4284,
+        "f1": 0.6674,
+        "deg": 0.9474
+      },
+      "doutrina_nacional": {
+        "lv_ratio": 0.9798,
+        "bleu": 0.9695,
+        "score": 0.9747,
+        "cer": 0.0202,
+        "wer": 0.0841,
+        "f1": 0.9109,
+        "deg": 0.9909
+      }
+    }
+  },
+  "nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL": {
+    "metrics": {
+      "lv_ratio": 0.3794,
+      "bleu": 0.3782,
+      "score": 0.3788,
+      "cer": 0.6205,
+      "wer": 0.6673,
+      "f1": 0.3553,
+      "deg": 0.4215
+    },
+    "per_sample": {
+      "corcunda_notredame": {
+        "lv_ratio": 0.9622,
+        "bleu": 0.9466,
+        "score": 0.9544,
+        "cer": 0.0378,
+        "wer": 0.0976,
+        "f1": 0.8811,
+        "deg": 0.9826
+      },
+      "filme_coringa": {
+        "lv_ratio": 0,
+        "bleu": 0,
+        "score": 0,
+        "cer": 1,
+        "wer": 1,
+        "f1": 0,
+        "deg": 0
+      },
+      "filme_beleza_ocultar": {
+        "lv_ratio": 0.2863,
+        "bleu": 0.3655,
+        "score": 0.3259,
+        "cer": 0.7137,
+        "wer": 0.9142,
+        "f1": 0.1613,
+        "deg": 0.6313
+      },
+      "serie_13_reasons": {
+        "lv_ratio": 0.5846,
+        "bleu": 0.5198,
+        "score": 0.5522,
+        "cer": 0.4154,
+        "wer": 0.509,
+        "f1": 0.6626,
+        "deg": 0.62
+      },
+      "filme_coringa_2": {
+        "lv_ratio": 0,
+        "bleu": 0,
+        "score": 0,
+        "cer": 1,
+        "wer": 1,
+        "f1": 0,
+        "deg": 0
+      },
+      "luis_x_rei": {
+        "lv_ratio": 0.9749,
+        "bleu": 0.9745,
+        "score": 0.9747,
+        "cer": 0.0251,
+        "wer": 0.0814,
+        "f1": 0.9251,
+        "deg": 0.9879
+      },
+      "anatomia": {
+        "lv_ratio": 0,
+        "bleu": 0,
+        "score": 0,
+        "cer": 1,
+        "wer": 1,
+        "f1": 0,
+        "deg": 0
+      },
+      "barranquilla": {
+        "lv_ratio": 0,
+        "bleu": 0,
+        "score": 0,
+        "cer": 1,
+        "wer": 1,
+        "f1": 0,
+        "deg": 0
+      },
+      "cairo": {
+        "lv_ratio": 0,
+        "bleu": 0,
+        "score": 0,
+        "cer": 1,
+        "wer": 1,
+        "f1": 0,
+        "deg": 0
+      },
+      "doutrina_nacional": {
+        "lv_ratio": 0.9865,
+        "bleu": 0.9754,
+        "score": 0.981,
+        "cer": 0.0135,
+        "wer": 0.0707,
+        "f1": 0.9228,
+        "deg": 0.9933
+      }
+    }
+  },
+  "qwen/qwen3-vl-235b-a22b-instruct": {
+    "metrics": {
+      "lv_ratio": 0.8772,
+      "bleu": 0.9058,
+      "score": 0.8915,
+      "cer": 0.1228,
+      "wer": 0.2083,
+      "f1": 0.7959,
+      "deg": 0.9874
+    },
+    "per_sample": {
+      "corcunda_notredame": {
+        "lv_ratio": 0.9681,
+        "bleu": 0.9536,
+        "score": 0.9609,
+        "cer": 0.0319,
+        "wer": 0.1084,
+        "f1": 0.8852,
+        "deg": 0.9834
+      },
+      "filme_coringa": {
+        "lv_ratio": 0.9828,
+        "bleu": 0.9782,
+        "score": 0.9805,
+        "cer": 0.0172,
+        "wer": 0.0438,
+        "f1": 0.9429,
+        "deg": 1.0016
+      },
+      "filme_beleza_ocultar": {
+        "lv_ratio": 0.3415,
+        "bleu": 0.5471,
+        "score": 0.4443,
+        "cer": 0.6585,
+        "wer": 0.884,
+        "f1": 0.2202,
+        "deg": 0.9007
+      },
+      "serie_13_reasons": {
+        "lv_ratio": 0.9111,
+        "bleu": 0.9193,
+        "score": 0.9152,
+        "cer": 0.0889,
+        "wer": 0.2196,
+        "f1": 0.7928,
+        "deg": 0.9942
+      },
+      "filme_coringa_2": {
+        "lv_ratio": 0.6189,
+        "bleu": 0.7434,
+        "score": 0.6811,
+        "cer": 0.3811,
+        "wer": 0.5447,
+        "f1": 0.4133,
+        "deg": 0.9854
+      },
+      "luis_x_rei": {
+        "lv_ratio": 0.9925,
+        "bleu": 0.9835,
+        "score": 0.988,
+        "cer": 0.0075,
+        "wer": 0.0548,
+        "f1": 0.9514,
+        "deg": 1.0058
+      },
+      "anatomia": {
+        "lv_ratio": 0.9954,
+        "bleu": 0.9905,
+        "score": 0.993,
+        "cer": 0.0046,
+        "wer": 0.0368,
+        "f1": 0.9619,
+        "deg": 1.0034
+      },
+      "barranquilla": {
+        "lv_ratio": 0.9861,
+        "bleu": 0.9824,
+        "score": 0.9843,
+        "cer": 0.0139,
+        "wer": 0.0537,
+        "f1": 0.9405,
+        "deg": 1.0015
+      },
+      "cairo": {
+        "lv_ratio": 0.986,
+        "bleu": 0.9803,
+        "score": 0.9832,
+        "cer": 0.0141,
+        "wer": 0.0681,
+        "f1": 0.9227,
+        "deg": 1.0044
+      },
+      "doutrina_nacional": {
+        "lv_ratio": 0.9894,
+        "bleu": 0.9798,
+        "score": 0.9846,
+        "cer": 0.0106,
+        "wer": 0.0688,
+        "f1": 0.9279,
+        "deg": 0.9941
+      }
+    }
+  },
+  "qwen/qwen3-vl-32b-instruct": {
+    "metrics": {
+      "lv_ratio": 0.85,
+      "bleu": 0.8816,
+      "score": 0.8658,
+      "cer": 0.1722,
+      "wer": 0.3038,
+      "f1": 0.7531,
+      "deg": 1.0297
+    },
+    "per_sample": {
+      "corcunda_notredame": {
+        "lv_ratio": 0.966,
+        "bleu": 0.9475,
+        "score": 0.9568,
+        "cer": 0.034,
+        "wer": 0.122,
+        "f1": 0.8727,
+        "deg": 0.9822
+      },
+      "filme_coringa": {
+        "lv_ratio": 0.9457,
+        "bleu": 0.9349,
+        "score": 0.9403,
+        "cer": 0.0543,
+        "wer": 0.1484,
+        "f1": 0.8178,
+        "deg": 0.9852
+      },
+      "filme_beleza_ocultar": {
+        "lv_ratio": 0.287,
+        "bleu": 0.4967,
+        "score": 0.3918,
+        "cer": 0.8999,
+        "wer": 1.2993,
+        "f1": 0.1463,
+        "deg": 1.2632
+      },
+      "serie_13_reasons": {
+        "lv_ratio": 0.8942,
+        "bleu": 0.9031,
+        "score": 0.8987,
+        "cer": 0.1058,
+        "wer": 0.2395,
+        "f1": 0.7495,
+        "deg": 0.9914
+      },
+      "filme_coringa_2": {
+        "lv_ratio": 0.4688,
+        "bleu": 0.6257,
+        "score": 0.5472,
+        "cer": 0.5663,
+        "wer": 0.9149,
+        "f1": 0.2766,
+        "deg": 1.0656
+      },
+      "luis_x_rei": {
+        "lv_ratio": 0.9934,
+        "bleu": 0.9837,
+        "score": 0.9885,
+        "cer": 0.0066,
+        "wer": 0.0548,
+        "f1": 0.9498,
+        "deg": 1.0069
+      },
+      "anatomia": {
+        "lv_ratio": 0.9948,
+        "bleu": 0.9911,
+        "score": 0.9929,
+        "cer": 0.0052,
+        "wer": 0.0379,
+        "f1": 0.9619,
+        "deg": 1.0015
+      },
+      "barranquilla": {
+        "lv_ratio": 0.9794,
+        "bleu": 0.9761,
+        "score": 0.9777,
+        "cer": 0.0207,
+        "wer": 0.0758,
+        "f1": 0.9237,
+        "deg": 1.0045
+      },
+      "cairo": {
+        "lv_ratio": 0.9809,
+        "bleu": 0.9752,
+        "score": 0.978,
+        "cer": 0.0191,
+        "wer": 0.08,
+        "f1": 0.9018,
+        "deg": 1.0026
+      },
+      "doutrina_nacional": {
+        "lv_ratio": 0.99,
+        "bleu": 0.9815,
+        "score": 0.9858,
+        "cer": 0.01,
+        "wer": 0.065,
+        "f1": 0.9311,
+        "deg": 0.9938
+      }
+    }
+  }
+}

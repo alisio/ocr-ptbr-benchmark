@@ -1,0 +1,29 @@
+[
+  {
+    "modelo": "allenai/olmOCR-2-7B-1025",
+    "provider": "deepinfra",
+    "texto": "Lista de Compras\n\nHoje fui ao mercado e comprei:\n- 2 kg de arroz\n- 1 lata de oleo\n- 3 pacotes de macarrao\n- 1 kg de acucar\n- 2 litros de leite\n\nTotal aproximado: R$ 85,00\n\nNao esquecer de pagar a conta de luz!\nAss.: Joao",
+    "latencia": 4.07,
+    "prompt_tokens": 306,
+    "completion_tokens": 83,
+    "erro": null
+  },
+  {
+    "modelo": "qwen/qwen3-vl-32b-instruct",
+    "provider": "openrouter",
+    "texto": "Lísta de Compras  \nHoje fui ao mercado e comprei:  \n- 2 kg de arroz  \n- 1 lata de óleo  \n- 3 pacotes de macarrão  \n- 1 kg de açúcar  \n- 2 litros de leite  \nTotal aproximado: R$ 85,00  \nNão esquecer de pagar a conta de luz!  \nAss: João",
+    "latencia": 2.41,
+    "prompt_tokens": 603,
+    "completion_tokens": 92,
+    "erro": null
+  },
+  {
+    "modelo": "qwen/qwen3-vl-235b-a22b-instruct",
+    "provider": "openrouter",
+    "texto": "Lista de Compras\nHoje fui ao mercado e comprei:\n- 2 kg de arroz\n- 1 lata de oleo\n- 3 pacotes de macarrao\n- 1 kg de acucar\n- 2 litros de leite\nTotal aproximado: R$ 85,00\nNao esquecer de pagar a conta de luz!\nAss.: Joao",
+    "latencia": 8.3,
+    "prompt_tokens": 603,
+    "completion_tokens": 90,
+    "erro": null
+  }
+]

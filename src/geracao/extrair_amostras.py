@@ -1,4 +1,6 @@
 """Extrai amostras do DharmaOCR-Benchmark para teste OCR."""
+# Autor: Alisio (https://github.com/alisio)
+# Licenca: MIT
 import requests, io, base64, os, json
 import argparse
 from PIL import Image

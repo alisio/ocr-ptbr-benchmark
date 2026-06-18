@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Calcula métricas OCR para resultados de testes."""
+# Autor: Alisio (https://github.com/alisio)
+# Licenca: MIT
 import json
 import re
 import argparse

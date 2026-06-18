@@ -1,3 +1,6 @@
+# Autor: Alisio (https://github.com/alisio)
+# Licenca: MIT
+
 from PIL import Image, ImageDraw, ImageFont
 import os
 import argparse

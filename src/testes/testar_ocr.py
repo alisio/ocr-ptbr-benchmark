@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 """Script unificado para testar OCR em imagens."""
+# Autor: Alisio (https://github.com/alisio)
+# Licenca: MIT
 import requests
 import base64
 import time

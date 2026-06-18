@@ -124,3 +124,9 @@ Makefile                # Comandos de reprodução
 - **Levenshtein Ratio**: similaridade normalizada de caracteres
 - **BLEU**: n-gram precision em nível de caractere
 - **Score**: (Levenshtein Ratio + BLEU) / 2
+
+---
+
+**Autor:** [Alisio](https://github.com/alisio)  
+**Dataset:** [DharmaOCR-Benchmark](https://huggingface.co/datasets/Dharma-AI/DharmaOCR-Benchmark) (Cardoso et al., 2026)  
+**Licença:** MIT

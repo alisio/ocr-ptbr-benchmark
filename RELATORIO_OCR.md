@@ -540,7 +540,7 @@ agindo descalibrada e arbitrariamente.
 
 ## Arquivos Gerados
 
-- `dados/dados/amostras_dharma/` — 10 amostras do DharmaOCR-Benchmark (imagens PNG + manifest.json com GT)
+- `dados/amostras_dharma/` — 10 amostras do DharmaOCR-Benchmark (imagens PNG + manifest.json com GT)
 - `resultados/dharma.json` — saídas de 9 modelos nas 10 amostras (80+ entradas)
 - `resultados/metricas_dharma_resumo.json` — métricas agregadas por modelo e por amostra
 - `src/testes/testar_ocr.py` — script unificado de teste (--provider --modelos --amostras --dataset)
@@ -548,4 +548,4 @@ agindo descalibrada e arbitrariamente.
 
 ---
 
-*Relatório gerado em 18 de junho de 2026 — Alisio*
+*Relatório gerado em 18 de junho de 2026 — Antonio Alisio de Meneses Cordeiro*

@@ -127,7 +127,7 @@ Makefile                # Comandos de reprodução
 
 ---
 
-**Autor:** [Alisio](https://github.com/alisio)  
+**Autor:** [Antonio Alisio de Meneses Cordeiro](mailto:alisio.meneses@gmail.com)  
 **Dataset:** [DharmaOCR-Benchmark](https://huggingface.co/datasets/Dharma-AI/DharmaOCR-Benchmark) (Cardoso et al., 2026)  
 **Licença:** MIT  
 **IA utilizada:** Este projeto foi desenvolvido com assistência de IA generativa.

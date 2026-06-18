@@ -271,7 +271,7 @@ O paper DharmaOCR reporta 1.41% de degeneração para olmOCR. Modelos foram trei
 
 ### A.1 manuscrito/corcunda_notredame (2.356 chars)
 
-![corcunda_notredame](amostras_dharma/manuscrito/corcunda_notredame.png)
+![corcunda_notredame](dados/amostras_dharma/manuscrito/corcunda_notredame.png)
 
 ```
 Na obra "O corcunda de Notredame", é aposentada a história de Quasímodo, um deficiente fisi-
@@ -310,7 +310,7 @@ dame", o preconceito não afete a qualidade de vida dos indivíduos no Brasil.
 
 ### A.2 manuscrito/filme_coringa (2.561 chars)
 
-![filme_coringa](amostras_dharma/manuscrito/filme_coringa.png)
+![filme_coringa](dados/amostras_dharma/manuscrito/filme_coringa.png)
 
 ```
 O filme Coringa retrata a história de Arthur, um homem solitário com diversos traumas
@@ -350,7 +350,7 @@ retratada no filme Coringa.
 
 ### A.3 manuscrito/filme_beleza_ocultar (2.899 chars)
 
-![filme_beleza_ocultar](amostras_dharma/manuscrito/filme_beleza_ocultar.png)
+![filme_beleza_ocultar](dados/amostras_dharma/manuscrito/filme_beleza_ocultar.png)
 
 ```
 O filme Beleza Ocultar, exibido pela plataforma de conteúdo audiovisual Netflix, retrata as dificuldades enfrenta-
@@ -389,7 +389,7 @@ za Oculta e o contexto hodierno do Brasil.
 
 ### A.4 manuscrito/serie_13_reasons (3.255 chars)
 
-![serie_13_reasons](amostras_dharma/manuscrito/serie_13_reasons.png)
+![serie_13_reasons](dados/amostras_dharma/manuscrito/serie_13_reasons.png)
 
 ```
 A série da Netflix "13 Reasons Why" iniciou um forte debate acerca da saúde mental e como problemas relativos a essa
@@ -429,7 +429,7 @@ será combatida e o tema poderá ser abordado na média melhor do que na série 
 
 ### A.5 manuscrito/filme_coringa_2 (3.081 chars)
 
-![filme_coringa_2](amostras_dharma/manuscrito/filme_coringa_2.png)
+![filme_coringa_2](dados/amostras_dharma/manuscrito/filme_coringa_2.png)
 
 ```
 No recém lançado filme "Coringa", o protagonista Arthur Fleck sofre de transtornos psiquiátricos e
@@ -469,7 +469,7 @@ compreensão para que o Brasil seja um país mais humanizado no que se refere à
 
 ### A.6 impresso/luis_x_rei (3.463 chars)
 
-![luis_x_rei](amostras_dharma/impresso/luis_x_rei.png)
+![luis_x_rei](dados/amostras_dharma/impresso/luis_x_rei.png)
 
 ```
 Luís X & I (Paris,  - Vincennes, ), também conhecido como Luís, o Teimoso, foi o Rei de Navarra como Luís I de 1305 até sua morte, e também Rei da França como Luís X a partir de 1314.Luís tornou-se rei de Navarra aquando da morte da sua mãe a 2 de Abril de 1305, e rei de França após a morte do seu pai em 1314, tendo sido coroado na catedral de Reims em 24 de Agosto de 1315. O seu curto reinado ficou marcado pelas consequências do caso da Torre de Nesle, que o condicionou a procurar nova esposa para gerar um herdeiro para o trono. A obstinação com que perseguiu este objectivo e a forma como foi manipulado pelos nobres da sua corte valeram-lhe os seus cognomes (le Hutin em francês).Em 21 de Setembro de 1305, Luís casara-se com Margarida de Borgonha, também uma capetiana, filha de Roberto II, duque da Borgonha, e de Inês de França, filha de São Luís. Da união nasceu uma filha, Joana, a 28 de Janeiro de 1312.Em Abril de 1314, ano da morte do seu pai Filipe o Belo, ocorreu o grande escândalo que marcaria a história da França, com graves consequências na linha sucessória do trono francês: A sua esposa Margarida de Borgonha e Branca de Borgonha, esposa do seu irmão Carlos, foram denunciadas por adultério pela sua irmã Isabel de França, rainha de Inglaterra.Uma vez que a descendência da dinastia capetiana e do reino da França fora colocada em perigo, o castigo devia ser exemplar. Margarida da Borgonha foi aprisionada em Château-Gaillard, onde ocupou um quarto aberto aos ventos no topo da torre. Morreu a 30 de Abril de 1315, provavelmente de tuberculose, e segundo algumas versões por estrangulamento, mas as suas rudes condições de encarceramento já eram propícias a uma morte prematura.Luís casou-se então a 19 de Agosto de 1315 com Clemência da Hungria, também uma capetiana, filha de Carlos Martel de Anjou, rei titular da Hungria, e de Clemência de Habsburgo. Desta união nasceria João I de França, o Póstumo, cinco meses após o seu falecimento.Morreu em Vincennes a 5 de Junho de 1316, possivelmente de desidratação, apesar de haver suspeitas de envenenamento. Foi sepultado, tal como a sua segunda esposa e o seu filho, na Basílica de Saint-Denis em Saint-Denis na França.Na data da morte de Luís X, Clemência da Hungria estava grávida, pelo que a sucessão do trono ficou uma incógnita, havendo três pretendentes:O assunto parecia resolvido com o nascimento de um filho varão, João I de França, o Póstumo, na noite de 14 para 15 de Novembro de 1316. Mas João viveu apenas durante alguns dias, falecendo a 19 de Novembro de forma misteriosa durante a cerimónia de apresentação aos barões.À nobreza do reino foi posta a questão da legitimidade da princesa Joana, nascida do primeiro matrimónio, à sucessão do trono francês. De facto, era a primeira vez que ocorria a ausência de um herdeiro varão directo. A sucessão que começara por ser electiva no início da dinastia capetiana, passara a dinástica varonil. Havendo inclusivamente dúvidas sobre a paternidade de Joana, devido ao caso da Torre de Nesle, a nobreza francesa preferiu, alegando a lei sálica, oferecer as coroas de ambos os reinos, e o condado de Champanhe, ao irmão de Luís X e já regente, Filipe V de França.Do seu primeiro casamento com Margarida da Borgonha, de 21 de Setembro de 1305 a 30 de Abril de 1315, nasceu:Luís casou-se em segundas núpcias a 13 de Agosto de 1315 com Clemência da Hungria, de quem teve:De uma criada chamada Eudeline, teve ainda uma filha ilegítima:
@@ -477,7 +477,7 @@ Luís X & I (Paris,  - Vincennes, ), também conhecido como Luís, o Teimoso, fo
 
 ### A.7 impresso/anatomia (6.102 chars)
 
-![anatomia](amostras_dharma/impresso/anatomia.png)
+![anatomia](dados/amostras_dharma/impresso/anatomia.png)
 
 ```
 Anatólia (do grego antigo ,  - "leste" ou "erguer/nascer do sol"), ou península anatoliana, também conhecida como Ásia Menor ("pequena Ásia"; ), denota a protrusão ocidental da Ásia, que compõe a maior parte da República da Turquia. A região é banhada pelo mar Negro ao norte, o mar Mediterrâneo ao sul, e do mar Egeu, a oeste. O mar de Mármara forma uma ligação entre os mares Negro e Egeu através do Bósforo e Dardanelos e separa Anatólia da Trácia, no continente europeu. Tradicionalmente, Anatólia é considerada estendendo-se a leste de uma linha entre o golfo de İskenderun e do mar Negro, aproximadamente correspondente aos dois terços ocidentais da parte asiática da Turquia. No entanto, desde Anatólia agora é muitas vezes considerado como sinônimo de Turquia Asiática, suas fronteiras leste e sudeste são amplamente consideradas como sendo as fronteiras turcas com os países vizinhos, que são Geórgia, Arménia, Azerbaijão, Irã, Iraque e Síria, em direção no sentido horário.A península da Anatólia, também chamada de Ásia Menor, é banhada pelo mar Negro ao norte, o mar Mediterrâneo ao sul, o mar Egeu, a oeste, e o mar de Mármara a noroeste, que separa a Anatólia da Trácia na Europa.Tradicionalmente, Anatólia é considerada a se estender ao leste de uma linha por tempo indeterminado correndo a partir do golfo de İskenderun ao mar Negro, coincidente com o Planalto de Anatólia. Esta definição geográfica tradicional é utilizada, por exemplo, na edição mais recente do Merriam-Webster's Geographical Dictionary, bem como a comunidade arqueológica. Sob esta definição, Anatólia é delimitada a leste pelo planalto Armênio, e o rio Eufrates, antes das curvas do rio a sudeste entrando na Mesopotâmia. A sudeste, é delimitada pelas faixas que separam o vale do Orontes, na Síria (região) e a planície da Mesopotâmia.[...]
@@ -485,7 +485,7 @@ Anatólia (do grego antigo ,  - "leste" ou "erguer/nascer do sol"), ou penínsul
 
 ### A.8 impresso/barranquilla (7.497 chars)
 
-![barranquilla](amostras_dharma/impresso/barranquilla.png)
+![barranquilla](dados/amostras_dharma/impresso/barranquilla.png)
 
 ```
 Barranquilla ou Barranquilha  (em espanhol: Barranquilla) é uma cidade da Colômbia, capital do departamento do Atlántico. Localiza-se no norte do país, perto do mar das Caraíbas. Tem cerca de 2 milhões de habitantes, sendo atualmente uma das cidades mais populosas do país.Foi fundada em meados de 1629, mas não há registros oficiais sobre sua data de fundação. No entanto, os habitantes da cidade celebram o dia 7 de abril como o aniversário da cidade, pois foi nesse dia, no ano de 1813, que a cidade foi estabelecida legalmente como uma vila. Barranquilla possui um dos mais importantes portos da América do Sul, recebendo desde a Segunda Guerra Mundial, imigrantes de várias partes do mundo. É um dos lares e o local de nascimento da estrela pop internacional Shakira, da atriz e modelo Sofía Vergara e da Miss Universo 2014, Paulina Vega. O escritor Gabriel García Márquez morou e estudou em Barranquilla em sua infância e juventude.[...]
@@ -493,7 +493,7 @@ Barranquilla ou Barranquilha  (em espanhol: Barranquilla) é uma cidade da Colô
 
 ### A.9 impresso/cairo (12.082 chars)
 
-![cairo](amostras_dharma/impresso/cairo.png)
+![cairo](dados/amostras_dharma/impresso/cairo.png)
 
 ```
 Cairo (, , literalmente: "conquistador" ou "vencedor"; ) é a capital do Egito e da província homônima. É a maior cidade do mundo árabe e da África. Os egípcios a denominam muitas vezes, simplesmente, com o nome do país no idioma local: Miṣr (), em árabe clássico; e Miṣr, em árabe egípcio. Cairo está localizada nas margens e ilhas do rio Nilo, ao sul do delta. Ao sudoeste, se encontra Giza e a antiga necrópole de Mênfis, com a meseta de Giza e suas monumentais pirâmides, como a Grande Pirâmide de Quéops.[...]
@@ -501,7 +501,7 @@ Cairo (, , literalmente: "conquistador" ou "vencedor"; ) é a capital do Egito e
 
 ### A.10 impresso/doutrina_nacional (3.413 chars)
 
-![doutrina_nacional](amostras_dharma/impresso/doutrina_nacional.png)
+![doutrina_nacional](dados/amostras_dharma/impresso/doutrina_nacional.png)
 
 ```
 DOUTRINA NACIONAL
@@ -534,13 +534,13 @@ agindo descalibrada e arbitrariamente.
 [...]
 ```
 
-> O texto completo de cada amostra está disponível em `amostras_dharma/manifest.json` (campo `ground_truth`).
+> O texto completo de cada amostra está disponível em `dados/amostras_dharma/manifest.json` (campo `ground_truth`).
 
 ---
 
 ## Arquivos Gerados
 
-- `dados/amostras_dharma/` — 10 amostras do DharmaOCR-Benchmark (imagens PNG + manifest.json com GT)
+- `dados/dados/amostras_dharma/` — 10 amostras do DharmaOCR-Benchmark (imagens PNG + manifest.json com GT)
 - `resultados/dharma.json` — saídas de 9 modelos nas 10 amostras (80+ entradas)
 - `resultados/metricas_dharma_resumo.json` — métricas agregadas por modelo e por amostra
 - `src/testes/testar_ocr.py` — script unificado de teste (--provider --modelos --amostras --dataset)

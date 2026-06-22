@@ -1,12 +1,16 @@
-# Relatório Comparativo: OCR em Português Brasileiro — 8 Modelos no DharmaOCR-Benchmark
+# Benchmark Exploratório de Modelos OCR em Português Brasileiro com Amostras do Dataset DharmaOCR
+
+> **Escopo**: este é um benchmark independente de oito modelos OCR/VLM. O DharmaOCR-Benchmark foi utilizado como fonte conveniente de imagens e ground truths já disponíveis; não há intenção de reproduzir, validar ou comparar diretamente os resultados do paper DharmaOCR. Os resultados descrevem somente as 10 imagens selecionadas e não constituem uma recomendação de produção sem validação adicional.
 
 ## Metodologia
 
-- **Dataset**: [DharmaOCR-Benchmark](https://huggingface.co/datasets/Dharma-AI/DharmaOCR-Benchmark) (Cardoso et al., 2026) — 496 imagens em português brasileiro, dividido em ESTER-Pt (texto impresso), Legal (documentos jurídicos) e BRESSAY (redações manuscritas)
-- **Amostragem**: 10 amostras (5 manuscritas BRESSAY + 5 impressas ESTER-Pt/Legal)
-- **Prompt único** para todos os modelos com temperatura 0
+- **Fonte dos dados**: [DharmaOCR-Benchmark](https://huggingface.co/datasets/Dharma-AI/DharmaOCR-Benchmark) (Cardoso et al., 2026) — dataset com 496 imagens em português brasileiro, dividido em ESTER-Pt (texto impresso), Legal (documentos jurídicos) e BRESSAY (redações manuscritas)
+- **Finalidade do uso**: aproveitar, por conveniência, uma base pública com imagens e ground truths disponíveis; o protocolo experimental, as métricas e os modelos deste estudo foram definidos de forma independente
+- **Amostragem por conveniência**: 10 amostras selecionadas manualmente (5 manuscritas BRESSAY + 5 impressas ESTER-Pt/Legal), equivalentes a aproximadamente 2% do dataset
+- **Execuções**: uma execução por combinação modelo-amostra, sem repetição para estimar variância
+- **Prompt único** para todos os modelos, temperatura 0 e limite de 8.192 tokens de saída
 - **Plataformas**: OpenRouter e DeepInfra (API OpenAI-compatível)
-- **Métrica composta oficial**: Score = (Levenshtein Ratio + BLEU char-level) / 2
+- **Métrica composta experimental deste relatório**: Score-char = (Levenshtein Ratio + BLEU character-level) / 2
 - **Data do teste**: 17-18 de junho de 2026
 
 ### Amostras
@@ -24,11 +28,22 @@
 | 9 | Impresso | cairo | Verbete Wikipedia: Cairo | 12.082 |
 | 10 | Impresso | doutrina_nacional | Documento jurídico ("Doutrina Nacional") | 3.413 |
 
+### Limitações metodológicas
+
+- A amostragem por conveniência não foi sorteada nem estratificada formalmente; portanto, pode não representar o dataset de origem nem o universo de documentos OCR em português brasileiro.
+- Não foram calculados intervalos de confiança e não há repetição de chamadas para avaliar estabilidade.
+- Modelos executados em provedores diferentes podem usar infraestrutura, quantização e backends distintos. O resultado observado corresponde à combinação **modelo + provedor**, não apenas ao modelo.
+- Temperatura 0 reduz variabilidade, mas não garante determinismo entre execuções ou provedores.
+- O limite de 8.192 tokens censurou algumas respostas. Nesses casos, latência, custo e extensão da degeneração podem ser limites inferiores.
+- As médias principais são **macro**: cada página tem o mesmo peso, independentemente do número de caracteres. Métricas micro, ponderadas pelo tamanho do ground truth, são apresentadas separadamente.
+- CER e WER são calculados sobre o texto bruto, enquanto LR e BLEU-char usam texto em minúsculas com espaços normalizados. Portanto, o Score-char não mede integralmente a preservação de estrutura solicitada no prompt.
+- O F1 implementado compara conjuntos de palavras únicas e descarta frequência e ordem; deve ser interpretado apenas como indicador auxiliar de cobertura lexical.
+
 ---
 
-## Ranking Geral
+## Resultado Geral na Amostra
 
-| # | Modelo | Provedor | Score | LR | BLEU | CER | WER | F1 | Latência |
+| # | Modelo | Provedor | Score-char | LR | BLEU-char | CER macro | WER macro | F1 | Latência média |
 |---|--------|:--------:|:----:|:--:|:----:|:---:|:---:|:--:|:--------:|
 | 1 | **qwen/qwen3-vl-235b-a22b-instruct** | OpenRouter | **0.8915** | 0.8772 | 0.9058 | 12.28% | 20.83% | 0.7959 | 89.4s |
 | 2 | **qwen/qwen3-vl-32b-instruct** | OpenRouter | **0.8658** | 0.8500 | 0.8816 | 17.22% | 30.38% | 0.7531 | 20.9s |
@@ -39,26 +54,43 @@
 | 7 | **PaddlePaddle/PaddleOCR-VL-0.9B** | DeepInfra | **0.7460** | 0.7475 | 0.7446 | 64.06% | 94.60% | 0.6525 | 72.1s |
 | 8 | **nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL** | DeepInfra | **0.3788** | 0.3794 | 0.3782 | 62.05% | 66.73% | 0.3553 | 23.8s |
 
-### Por Tipo (Manuscrito vs Impresso)
+> A ordenação usa o Score-char macro das 10 imagens deste estudo. Ela compara as configurações testadas somente nesse recorte e não deve ser interpretada como leaderboard do dataset de origem. A latência é média de uma única chamada por imagem e é sensível a filas e casos degenerados.
+
+### Por Tipo (médias macro)
 
 | Modelo | Score Manuscrito | CER Manuscrito | Score Impresso | CER Impresso |
 |--------|:---------------:|:--------------:|:--------------:|:------------:|
-| qwen/qwen3-vl-235b-a22b-instruct | **0.7964** | 23.94% | **0.9866** | 1.02% |
-| qwen/qwen3-vl-32b-instruct | 0.7470 | 33.21% | 0.9846 | 1.25% |
-| meta-llama/llama-4-maverick | 0.7525 | 28.08% | 0.9320 | 8.17% |
-| google/gemma-4-31b-it | 0.6764 | 13.41% | 0.7228 | 40.93% |
-| allenai/olmOCR-2-7B-1025 | 0.8775 | 13.58% | 0.7052 | 104.19% |
+| qwen/qwen3-vl-235b-a22b-instruct | 0.7964 | 23.55% | **0.9866** | **1.01%** |
+| qwen/qwen3-vl-32b-instruct | 0.7470 | 33.21% | 0.9846 | 1.23% |
+| meta-llama/llama-4-maverick | 0.7525 | 28.08% | 0.9320 | 8.18% |
+| google/gemma-4-31b-it | 0.8764 | **13.42%** | 0.7228 | 40.93% |
+| allenai/olmOCR-2-7B-1025 | **0.8775** | 13.58% | 0.7051 | 104.04% |
 | mistralai/mistral-large-2512 | 0.6638 | 38.62% | 0.9011 | 12.15% |
-| PaddlePaddle/PaddleOCR-VL-0.9B | 0.8750 | 13.56% | 0.6170 | 115.42% |
-| nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL | 0.3665 | 43.34% | 0.3911 | 80.76% |
+| PaddlePaddle/PaddleOCR-VL-0.9B | 0.8750 | 13.56% | 0.6170 | 114.57% |
+| nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL | 0.3665 | 63.34% | 0.3911 | 60.77% |
+
+### CER macro vs micro
+
+| Modelo | CER macro geral | CER micro geral |
+|--------|:---------------:|:---------------:|
+| qwen/qwen3-vl-235b-a22b-instruct | **12.28%** | **8.26%** |
+| qwen/qwen3-vl-32b-instruct | 17.22% | 11.54% |
+| meta-llama/llama-4-maverick | 18.13% | 18.13% |
+| mistralai/mistral-large-2512 | 25.38% | 24.46% |
+| google/gemma-4-31b-it | 27.18% | 48.19% |
+| allenai/olmOCR-2-7B-1025 | 58.81% | 91.98% |
+| nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL | 62.05% | 74.86% |
+| PaddlePaddle/PaddleOCR-VL-0.9B | 64.06% | 114.30% |
+
+O CER macro dá o mesmo peso a cada página. O CER micro aproxima a razão entre o total de edições e o total de caracteres de referência; por isso, penaliza mais falhas em documentos longos. Os valores micro foram reconstruídos a partir das métricas por página arredondadas e podem apresentar pequena diferença em relação a um cálculo direto sem arredondamento.
 
 ---
 
 ## Análise por Modelo
 
-### 1. qwen/qwen3-vl-235b-a22b-instruct — Score 0.8915
+### 1. qwen/qwen3-vl-235b-a22b-instruct — Score-char 0.8915
 
-| Amostra | Tipo | Score | CER | WER |
+| Amostra | Tipo | Score-char | CER | WER |
 |---------|:----:|:----:|:---:|:---:|
 | corcunda_notredame | Manuscrito | 0.9609 | 3.19% | 10.84% |
 | filme_coringa | Manuscrito | 0.9805 | 1.72% | 4.38% |
@@ -71,11 +103,11 @@
 | cairo | Impresso | 0.9832 | 1.41% | 6.81% |
 | doutrina_nacional | Impresso | 0.9846 | 1.06% | 6.88% |
 
-Desempenho quase perfeito em texto impresso (Score 0.9866, CER ~1%). O ponto fraco é caligrafia mais desafiadora — amostra `filme_beleza_ocultar` com Score 0.4443. Nenhuma degeneração observada. O modelo de 235B tem a vantagem de escala para manuscritos, com Score 0.9119 nas 3 amostras mais legíveis.
+Desempenho quase perfeito nas cinco imagens impressas (Score-char 0.9866, CER macro ~1%). O ponto fraco foi a amostra manuscrita `filme_beleza_ocultar`, com Score-char 0.4443. Não houve degeneração nas execuções observadas. A diferença para o modelo de 32B não pode ser atribuída somente à escala sem controlar arquitetura, backend e variabilidade das chamadas.
 
-### 2. qwen/qwen3-vl-32b-instruct — Score 0.8658
+### 2. qwen/qwen3-vl-32b-instruct — Score-char 0.8658
 
-| Amostra | Tipo | Score | CER | WER |
+| Amostra | Tipo | Score-char | CER | WER |
 |---------|:----:|:----:|:---:|:---:|
 | corcunda_notredame | Manuscrito | 0.9568 | 3.40% | 12.20% |
 | filme_coringa | Manuscrito | 0.9403 | 5.43% | 14.84% |
@@ -88,11 +120,11 @@ Desempenho quase perfeito em texto impresso (Score 0.9866, CER ~1%). O ponto fra
 | cairo | Impresso | 0.9780 | 1.91% | 8.00% |
 | doutrina_nacional | Impresso | 0.9858 | 1.00% | 6.50% |
 
-Excelente em texto impresso (Score 0.9846), equivalente ao 235B. Em manuscrito, tende a "corrigir" acentos que não estão na imagem — extração não-fiel. Latência 20.9s é a menor entre modelos competitivos.
+Excelente nas cinco imagens impressas (Score-char 0.9846), muito próximo do 235B nesta amostra. Em algumas transcrições manuscritas foram observadas normalizações de acentos ausentes na imagem, reduzindo a fidelidade visual. A latência média foi 20,9s e a mediana, 14,8s.
 
-### 3. meta-llama/llama-4-maverick — Score 0.8423
+### 3. meta-llama/llama-4-maverick — Score-char 0.8423
 
-| Amostra | Tipo | Score | CER | WER |
+| Amostra | Tipo | Score-char | CER | WER |
 |---------|:----:|:----:|:---:|:---:|
 | corcunda_notredame | Manuscrito | 0.9169 | 8.12% | 18.97% |
 | filme_coringa | Manuscrito | 0.7878 | 22.71% | 38.20% |
@@ -105,11 +137,11 @@ Excelente em texto impresso (Score 0.9846), equivalente ao 235B. Em manuscrito, 
 | cairo | Impresso | 0.7733 | 29.36% | 44.98% |
 | doutrina_nacional | Impresso | 0.9820 | 1.32% | 6.88% |
 
-Surpreendente em manuscrito — segunda melhor performance em `filme_beleza_ocultar` (Score 0.8853). Em impresso, bom desempenho mas com dificuldade em textos longos como `cairo` (Score 0.7733).
+Na amostra `filme_beleza_ocultar`, obteve o segundo maior Score-char (0,8853), mas o desempenho manuscrito foi inconsistente nas demais páginas. No conjunto impresso, a principal queda ocorreu em `cairo` (Score-char 0,7733).
 
-### 4. google/gemma-4-31b-it — Score 0.7996
+### 4. google/gemma-4-31b-it — Score-char 0.7996
 
-| Amostra | Tipo | Score | CER | WER |
+| Amostra | Tipo | Score-char | CER | WER |
 |---------|:----:|:----:|:---:|:---:|
 | corcunda_notredame | Manuscrito | 0.9149 | 8.37% | 15.99% |
 | filme_coringa | Manuscrito | 0.9404 | 5.90% | 12.65% |
@@ -122,11 +154,11 @@ Surpreendente em manuscrito — segunda melhor performance em `filme_beleza_ocul
 | cairo | Impresso | 0.2290 | 125.91% | 177.49% |
 | doutrina_nacional | Impresso | 0.9599 | 3.90% | 4.02% |
 
-Manuscrito bom (segundo melhor CER em manuscrito: 13.41%). Em texto impresso denso, porém, sofreu degeneração severa — `cairo` (12.082 chars GT) produziu 21.169 chars com repetição de parágrafos, inflando CER para 125.91%. Latência alta (82s).
+Nas cinco imagens manuscritas, apresentou o menor CER macro (13,42%), embora o Score-char tenha ficado praticamente empatado com olmOCR e PaddleOCR-VL. Em texto impresso denso, sofreu degeneração severa em `cairo`: 21.169 caracteres de saída para 12.082 no GT, com repetição de parágrafos e CER de 125,91%. A latência média foi 82s, fortemente afetada por esse caso.
 
-### 5. allenai/olmOCR-2-7B-1025 — Score 0.7913
+### 5. allenai/olmOCR-2-7B-1025 — Score-char 0.7913
 
-| Amostra | Tipo | Score | CER | WER |
+| Amostra | Tipo | Score-char | CER | WER |
 |---------|:----:|:----:|:---:|:---:|
 | corcunda_notredame | Manuscrito | 0.9153 | 7.90% | 18.16% |
 | filme_coringa | Manuscrito | 0.9428 | 5.98% | 12.41% |
@@ -139,11 +171,11 @@ Manuscrito bom (segundo melhor CER em manuscrito: 13.41%). Em texto impresso den
 | cairo | Impresso | 0.6091 | 54.84% | 77.44% |
 | doutrina_nacional | Impresso | 0.9565 | 4.16% | 4.97% |
 
-**Melhor em manuscrito entre todos os modelos**: Score 0.8775, CER 13.58%. Porém, sofreu degeneração severa em `barranquilla` (38.436 chars output para 7.497 chars GT — 5× o tamanho esperado), fenômeno conhecido reportado no paper DharmaOCR. Também apresentou degeneração em `cairo` (11.448 vs 12.082).
+Obteve o maior Score-char manuscrito por margem mínima: 0,8775, contra 0,8764 da Gemma e 0,8750 do PaddleOCR-VL. A diferença é insuficiente para declarar superioridade com apenas cinco amostras e uma execução. Sofreu degeneração severa em `barranquilla` (38.436 caracteres para 7.497 no GT, atingindo o limite de 8.192 tokens). Em `cairo`, a saída foi menor que o GT (11.448 contra 12.082) e apresentou omissões/erros, não evidência de degeneração por repetição.
 
-### 6. mistralai/mistral-large-2512 — Score 0.7825
+### 6. mistralai/mistral-large-2512 — Score-char 0.7825
 
-| Amostra | Tipo | Score | CER | WER |
+| Amostra | Tipo | Score-char | CER | WER |
 |---------|:----:|:----:|:---:|:---:|
 | corcunda_notredame | Manuscrito | 0.9208 | 7.31% | 18.70% |
 | filme_coringa | Manuscrito | 0.8339 | 17.98% | 33.82% |
@@ -156,11 +188,11 @@ Manuscrito bom (segundo melhor CER em manuscrito: 13.41%). Em texto impresso den
 | cairo | Impresso | 0.7809 | 29.50% | 42.84% |
 | doutrina_nacional | Impresso | 0.9747 | 2.02% | 8.41% |
 
-Impresso bom (Score 0.9011) mas perde para Qwen. Manuscrito fraco nas amostras mais densas. Latência baixa (27.3s).
+No conjunto impresso, obteve Score-char 0,9011, abaixo dos dois Qwen e do Llama Maverick. O desempenho manuscrito caiu fortemente em `filme_beleza_ocultar` e `filme_coringa_2`. A latência média foi 27,3s e a mediana, 18,2s.
 
-### 7. PaddlePaddle/PaddleOCR-VL-0.9B — Score 0.7460
+### 7. PaddlePaddle/PaddleOCR-VL-0.9B — Score-char 0.7460
 
-| Amostra | Tipo | Score | CER | WER |
+| Amostra | Tipo | Score-char | CER | WER |
 |---------|:----:|:----:|:---:|:---:|
 | corcunda_notredame | Manuscrito | 0.9154 | 7.86% | 18.43% |
 | filme_coringa | Manuscrito | 0.9443 | 5.71% | 12.17% |
@@ -173,11 +205,11 @@ Impresso bom (Score 0.9011) mas perde para Qwen. Manuscrito fraco nas amostras m
 | cairo | Impresso | 0.1478 | 195.59% | 245.92% |
 | doutrina_nacional | Impresso | 0.9600 | 3.84% | 4.21% |
 
-**Segundo melhor em manuscrito** (Score 0.8750), próximo do olmOCR. Porém, degeneração severa em textos densos — `barranquilla` (32.088 chars output, 4.28× GT) e `cairo` (30.038 chars output, 2.49× GT). Degeneração mais severa que olmOCR, possivelmente por ser um modelo de apenas 0.9B parâmetros. Em deprecação na DeepInfra (05/07/2026).
+Ficou praticamente empatado com olmOCR e Gemma nas cinco imagens manuscritas. Apresentou degeneração severa em `barranquilla` (32.088 caracteres, 4,28× o GT) e `cairo` (30.038 caracteres, 2,49× o GT), atingindo o limite de 8.192 tokens nos dois casos. Os dados não permitem atribuir esse comportamento ao número de parâmetros. Segundo a informação disponível no provedor durante o teste, o modelo estava programado para deprecação na DeepInfra em 5 de julho de 2026.
 
-### 8. nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL — Score 0.3788
+### 8. nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL — Score-char 0.3788
 
-| Amostra | Tipo | Score | CER | WER |
+| Amostra | Tipo | Score-char | CER | WER |
 |---------|:----:|:----:|:---:|:---:|
 | corcunda_notredame | Manuscrito | 0.9544 | 3.78% | 9.76% |
 | filme_coringa | Manuscrito | 0.0000 | 100.00% | 100.00% |
@@ -190,21 +222,17 @@ Impresso bom (Score 0.9011) mas perde para Qwen. Manuscrito fraco nas amostras m
 | cairo | Impresso | 0.0000 | 100.00% | 100.00% |
 | doutrina_nacional | Impresso | 0.9810 | 1.35% | 7.07% |
 
-Modelo inconsistente: 5/10 amostras retornaram saída vazia (provavelmente conteúdo filtrado pelo safety guardrail interno). Nas 5 amostras que funcionou, desempenho foi de bom a excelente (especialmente `corcunda_notredame` com Score 0.9544 e `doutrina_nacional` com 0.9810). Não recomendado para uso em produção devido à alta taxa de falha.
+Modelo inconsistente: 5/10 amostras retornaram conteúdo vazio, mas registraram exatamente 8.192 completion tokens, o limite configurado. Isso sugere esgotamento do orçamento de geração ou comportamento específico do backend, mas a causa não pode ser confirmada porque o resultado não registra `finish_reason`, tokens de raciocínio ou resposta bruta do provedor. Nas execuções com conteúdo, o desempenho variou de fraco a excelente. A taxa de saída útil observada é insuficiente para recomendá-lo sem investigação e reteste.
 
 ---
 
-## Comparação com Resultados Publicados (DharmaOCR Paper)
+## Uso do Dataset DharmaOCR
 
-| Modelo | DharmaOCR (paper) | Nosso Teste | Diferença |
-|--------|:-----------------:|:-----------:|:---------:|
-| olmOCR-2-7B | 0.823 | **0.7913** | -0.0317 |
-| Qwen3-VL-32B | N/A | **0.8658** | — |
-| Qwen3-VL-235B | N/A | **0.8915** | — |
-| Llama-4-Maverick | N/A | **0.8423** | — |
-| Nemotron-12B | N/A | 0.3788 | — |
+O DharmaOCR-Benchmark foi escolhido pela disponibilidade de imagens em português brasileiro e respectivos ground truths. Este estudo não pretende reproduzir o protocolo, as métricas, os modelos ou os resultados publicados por Cardoso et al. (2026).
 
-> **Nota**: O Score do paper usa BLEU word-level (nltk), enquanto nosso teste usa BLEU character-level, o que tende a valores mais altos em geral. A métrica character-level é mais estável e adequada para OCR, onde erros parciais de caracteres são comuns.
+O Score-char é uma métrica definida para este benchmark independente. Diferenças de amostragem, prompt, formato de saída, tokenização, provedores e execução impedem comparação numérica direta com os scores do paper. A referência ao trabalho original serve apenas para identificar e atribuir corretamente a fonte dos dados.
+
+Fonte do dataset: [Cardoso et al., 2026 — DharmaOCR](https://arxiv.org/abs/2604.14314).
 
 ---
 
@@ -219,51 +247,67 @@ Três modelos apresentaram degeneração (repetição de texto) em documentos de
 | PaddlePaddle/PaddleOCR-VL-0.9B | cairo | 12.082 | 30.038 | **2.49×** |
 | google/gemma-4-31b-it | cairo | 12.082 | 21.169 | **1.75×** |
 
-O paper DharmaOCR reporta 1.41% de degeneração para olmOCR. Modelos foram treinados com GRPO (RL) que pode levar a esse comportamento em documentos fora da distribuição de treino. A degeneração impacta severamente métricas CER/WER e também o custo (tokens de saída).
+Nesta amostra, os eventos ocorreram em imagens impressas de alta resolução e alta densidade textual, mas o experimento não isola comprimento, resolução, layout, treinamento ou backend como causa. As cinco imagens manuscritas também têm mais de 2.000 caracteres e não provocaram loops nesses modelos. A degeneração deve ser tratada como fenômeno multifatorial.
+
+Os quatro eventos listados atingiram o limite configurado de 8.192 tokens. Assim, o tamanho final que seria produzido sem esse limite é desconhecido. A degeneração impacta CER/WER, latência e custo de saída.
 
 ---
 
-## Recomendações Finais
+## Conclusões e Recomendações Condicionais
 
 ### Cenário 1: Texto Impresso (documentos, artigos, livros)
 
-| Modelo | Score | CER | Custo |
-|--------|:----:|:---:|:-----:|
-| **qwen/qwen3-vl-235b-a22b-instruct** | **0.9866** | **1.02%** | $0.00046 |
-| qwen/qwen3-vl-32b-instruct | 0.9846 | 1.25% | **$0.00023** |
-| meta-llama/llama-4-maverick | 0.9320 | 8.17% | $0.00042 |
+| Modelo | Score-char macro | CER macro | CER micro | Custo médio estimado/imagem | Latência mediana |
+|--------|:----------------:|:---------:|:---------:|:---------------------------:|:----------------:|
+| **qwen/qwen3-vl-235b-a22b-instruct** | **0.9866** | **1.01%** | **1.12%** | $0.002110 | 53.7s |
+| qwen/qwen3-vl-32b-instruct | 0.9846 | 1.23% | 1.46% | **$0.001017** | **23.2s** |
+| meta-llama/llama-4-maverick | 0.9320 | 8.18% | 13.17% | $0.001382 | 54.0s |
 
-→ **qwen/qwen3-vl-32b-instruct** oferece o melhor custo-benefício para texto impresso (Score 0.9846, CER 1.25%, latência 21s).
+→ Nas cinco imagens impressas, o Qwen 32B apresentou a melhor relação observada entre qualidade, custo estimado e latência. O Qwen 235B teve a maior precisão, mas a diferença de Score-char foi de apenas 0,0020 nesta amostra.
 
 ### Cenário 2: Texto Manuscrito (redações, notas, formulários)
 
-| Modelo | Score | CER |
-|--------|:----:|:---:|
-| **allenai/olmOCR-2-7B-1025** | **0.8775** | **13.58%** |
-| PaddlePaddle/PaddleOCR-VL-0.9B | 0.8750 | 13.56% |
-| qwen/qwen3-vl-235b-a22b-instruct | 0.7964 | 23.94% |
+| Modelo | Score-char macro | CER macro | CER micro | Custo médio estimado/imagem |
+|--------|:----------------:|:---------:|:---------:|:---------------------------:|
+| **allenai/olmOCR-2-7B-1025** | **0.8775** | 13.58% | 14.18% | **$0.000149** |
+| google/gemma-4-31b-it | 0.8764 | **13.42%** | **13.99%** | $0.000262 |
+| PaddlePaddle/PaddleOCR-VL-0.9B | 0.8750 | 13.56% | 14.20% | $0.000548 |
 
-→ **allenai/olmOCR-2-7B-1025** no DeepInfra (Score 0.8775, CER 13.58%) — cuidado com degeneração em textos > 2.000 chars.
+→ Os três modelos ficaram praticamente empatados nas cinco redações manuscritas. olmOCR teve o maior Score-char e menor custo estimado; Gemma teve o menor CER. O conjunto não contém notas curtas nem formulários, portanto os resultados não devem ser extrapolados para esses formatos. O risco observado de olmOCR e PaddleOCR-VL está associado a páginas impressas densas deste teste, não a um limiar demonstrado de 2.000 caracteres.
 
 ### Cenário 3: Uso Geral (misto impresso + manuscrito)
 
-| Modelo | Score Geral | Pros | Contras |
+| Modelo | Score-char geral | Pros | Contras |
 |--------|:----------:|------|---------|
-| **qwen/qwen3-vl-235b-a22b-instruct** | **0.8915** | Melhor geral, sem degeneração | Mais caro, latência alta |
-| qwen/qwen3-vl-32b-instruct | 0.8658 | Rápido e barato, quase tão bom | "Corrige" acentos em manuscrito |
-| meta-llama/llama-4-maverick | 0.8423 | Surpreendente em manuscrito | Perde para Qwen em impresso |
+| **qwen/qwen3-vl-235b-a22b-instruct** | **0.8915** | Melhor Score-char e CER geral na amostra; sem degeneração observada | Maior custo que o 32B; latência variável |
+| qwen/qwen3-vl-32b-instruct | 0.8658 | Bom resultado em impresso; menor custo e latência que o 235B | Desempenho instável em duas redações; normalizações não fiéis |
+| meta-llama/llama-4-maverick | 0.8423 | Sem degeneração observada | Qualidade inferior aos Qwen no conjunto impresso |
 
-→ **qwen/qwen3-vl-235b-a22b-instruct** para máxima precisão; **qwen/qwen3-vl-32b-instruct** para melhor custo-benefício.
+→ Para uma próxima validação, os dois Qwen são os candidatos mais fortes para uso misto. A escolha entre eles deve ser confirmada em uma amostra representativa do domínio real, com repetições, orçamento de latência e preço vigente.
+
+### Interpretação dos custos
+
+Os custos acima foram recalculados a partir de `prompt_tokens` e `completion_tokens` registrados, usando os preços estáticos cadastrados em `src/metricas/calcular_metricas.py`. Eles são estimativas por imagem, não valores confirmados por fatura, e podem ficar desatualizados. Casos que atingiram 8.192 tokens foram cobrados até o limite configurado.
 
 ### Alertas
 
 | Modelo | Problema | Impacto |
 |--------|----------|---------|
-| `allenai/olmOCR-2-7B-1025` | Degeneração em textos densos | Pode inflar custo e piorar métricas |
+| `allenai/olmOCR-2-7B-1025` | Degeneração em uma página impressa densa | Pode inflar custo, latência e erros |
 | `PaddlePaddle/PaddleOCR-VL-0.9B` | Degeneração severa + deprecação | Não recomendado para novos projetos |
-| `google/gemma-4-31b-it` | Degeneração em textos longos | Latência alta (82s) + degeneração |
-| `qwen/qwen3-vl-32b-instruct` | "Corrige" acentos em manuscrito | Perde fidelidade visual |
-| `nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL` | 50% de falha (saída vazia) | Não utilizável em produção |
+| `google/gemma-4-31b-it` | Degeneração em uma página impressa densa | Latência média elevada e saída censurada pelo limite |
+| `qwen/qwen3-vl-32b-instruct` | Normalizações linguísticas em manuscrito | Pode perder fidelidade visual |
+| `nvidia/NVIDIA-Nemotron-Nano-12B-v2-VL` | 50% de saídas vazias após atingir 8.192 tokens | Causa precisa ser investigada antes de novo uso |
+
+### Próximos passos necessários para um benchmark conclusivo
+
+1. Executar o conjunto completo ou uma amostra aleatória estratificada por fonte, layout, resolução e densidade.
+2. Repetir cada combinação ao menos três vezes e reportar média, mediana, dispersão e taxa de sucesso.
+3. Registrar `finish_reason`, resposta bruta, versão/revisão do modelo, backend, quantização e identificador do provedor.
+4. Formalizar e versionar o protocolo próprio deste benchmark, incluindo normalização, métricas, prompt e critérios de falha.
+5. Calcular diretamente métricas macro e micro, sem reconstrução a partir de valores arredondados.
+6. Reportar custo por imagem e por milhão de caracteres, usando preços datados e, quando possível, valores faturados.
+7. Definir degeneração por detecção de repetição, não apenas pela razão entre comprimentos.
 
 ---
 
@@ -541,11 +585,11 @@ agindo descalibrada e arbitrariamente.
 ## Arquivos Gerados
 
 - `dados/amostras_dharma/` — 10 amostras do DharmaOCR-Benchmark (imagens PNG + manifest.json com GT)
-- `resultados/dharma.json` — saídas de 9 modelos nas 10 amostras (80+ entradas)
+- `resultados/dharma.json` — saídas de 8 modelos nas 10 amostras (80 entradas)
 - `resultados/metricas_dharma_resumo.json` — métricas agregadas por modelo e por amostra
 - `src/testes/testar_ocr.py` — script unificado de teste (--provider --modelos --amostras --dataset)
-- `src/metricas/calcular_metricas.py` — cálculo de métricas (CER, WER, F1, LR, BLEU, Score)
+- `src/metricas/calcular_metricas.py` — cálculo de métricas (CER, WER, F1, LR, BLEU-char e Score-char experimental)
 
 ---
 
-*Relatório gerado em 18 de junho de 2026 — Antonio Alisio de Meneses Cordeiro*
+*Testes executados em 17-18 de junho de 2026; relatório revisado em 22 de junho de 2026 — Antonio Alisio de Meneses Cordeiro*
